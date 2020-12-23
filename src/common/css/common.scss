@@ -1,0 +1,556 @@
+.main-text {
+    color: #b19069;
+}
+
+.main-bgc {
+    background: #b19069;
+}
+
+.minor-text {
+    color: #434343;
+}
+
+.info-text {
+    color: #9b9b9b;
+}
+
+.tips-text {
+    color: #f6b951;
+}
+
+.but-text {
+    color: #d8a26d;
+}
+
+.white-text {
+    color: #fff;
+}
+
+.white-bg {
+    background: #fff;
+}
+.light-gray-bg {
+    background: #ddd;
+}
+.grey-bg {
+    background: #ccc;
+}
+
+.black-text {
+    color: #000;
+}
+
+.yellow-text {
+    color: #fb4929;
+}
+
+.blue-text {
+    color: #091e59;
+}
+
+.green-text {
+    color: #39c773;
+}
+
+.wrap {
+    padding: 0 24rpx;
+}
+
+.zero {
+    top: 0;
+    left: 0;
+}
+
+.item-wrap {
+    border-width: 2rpx;
+    border-color: #b19069;
+    border-style: dashed;
+    background-image: linear-gradient(90deg, #b19069, #b19069);
+    border-radius: 6rpx;
+}
+
+.item-bg {
+    background: #e9eaed;
+}
+
+.row-area {
+    text-align: center;
+}
+
+.row-item {
+    margin-top: 50rpx;
+}
+
+.row-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-top: 40rpx;
+    padding-bottom: 10rpx;
+}
+
+.item-title {
+    position: relative;
+    font-size: 32rpx;
+    padding-left: 28rpx;
+    line-height: 1;
+    margin-top: 40rpx;
+    margin-bottom: 22rpx;
+    color: #b19069;
+}
+
+.item-title:after {
+    position: absolute;
+    width: 6rpx;
+    top: -2rpx;
+    height: 36rpx;
+    content: '';
+    left: 0;
+    border-radius: 20rpx;
+    background-color: #b19069;
+}
+
+.main-bg {
+    background: linear-gradient(90deg, #27303e 0%, #313944 100%);
+}
+
+.minor-bg {
+    background-image: linear-gradient(90deg, #b19069, #b19069);
+}
+
+.bg-img {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/**
+*
+* 以下为批量函数
+*
+*/
+.z-relative,
+.z-rela,
+.z-r {
+    position: relative;
+}
+
+.z-absolute,
+.z-abso,
+.z-a {
+    position: absolute;
+}
+
+image {
+    display: inline-block;
+}
+
+view,
+text {
+    box-sizing: border-box;
+}
+
+.z-flex,
+.z-f {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.z-flex-row,
+.z-fr {
+    display: flex;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.z-flex-col,
+.z-fc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.z-flex-wrap,
+.z-fw {
+    flex-wrap: wrap;
+}
+
+.z-flex-nowrap,
+.z-fnw {
+    flex-wrap: nowrap;
+}
+
+.z-col-center,
+.z-cc {
+    align-items: center;
+}
+
+.z-col-top,
+.z-ct {
+    align-items: flex-start;
+}
+
+.z-col-bottom,
+.z-cb {
+    align-items: flex-end;
+}
+
+.z-row-center,
+.z-rc {
+    justify-content: center;
+}
+
+.z-row-left,
+.z-rl {
+    justify-content: flex-start;
+}
+
+.z-row-right,
+.z-rr {
+    justify-content: flex-end;
+}
+
+.z-row-between,
+.z-rb {
+    justify-content: space-between;
+}
+
+.z-row-around,
+.z-ra {
+    justify-content: space-around;
+}
+
+.z-text-left,
+.z-tl {
+    text-align: left;
+}
+
+.z-text-center,
+.z-tc {
+    text-align: center;
+}
+
+.z-text-right,
+.z-tr {
+    text-align: right;
+}
+
+// 定义flex等分
+@for $i from 0 through 12 {
+    .z-flex-#{$i},
+    .z-f#{$i} {
+        flex: $i;
+    }
+
+    @for $x from 0 through 12 {
+        .z-flex-#{$i}-#{$x},
+        .z-f#{$i}-#{$x} {
+            flex: $i $x;
+        }
+
+        @for $y from 0 through 100 {
+            .z-flex-#{$i}-#{$x}-#{$y},
+            .z-f#{$i}-#{$x}-#{$y} {
+                flex: $i $x ($y * 1%);
+            }
+        }
+    }
+}
+
+/* font start*/
+
+.z-font-xs,
+.z-fxs {
+    font-size: 24rpx;
+}
+
+.z-font-sm,
+.z-fsm {
+    font-size: 26rpx;
+}
+
+.z-font-md,
+.z-fmd {
+    font-size: 28rpx;
+}
+
+.z-font-lg,
+.z-flg {
+    font-size: 30rpx;
+}
+
+.z-font-xl,
+.z-fxl {
+    font-size: 34rpx;
+}
+
+// 定义字体(rpx)单位，小于20都为px单位字体 大于或等于20的都为rpx单位字体
+@for $i from 8 through 144 {
+    @if $i < 20 {
+        .z-f-#{i},
+        .z-font-#{$i} {
+            font-size: $i + px;
+        }
+    } @else {
+        .z-f-#{$i},
+        .z-font-#{$i} {
+            font-size: $i + rpx;
+        }
+    }
+}
+
+/* font end*/
+// 宽度 col 等分
+@for $i from 0 through 12 {
+    .z-c#{$i},
+    .z-col-#{$i} {
+        width: 100 * $i/12 * 1% !important;
+    }
+}
+
+.z-col-xs,
+.z-cxs {
+    width: 25% !important;
+}
+
+.z-col-sm,
+.z-csm {
+    width: 50% !important;
+}
+
+.z-col-md,
+.z-cmd {
+    width: 75% !important;
+}
+
+.z-col-lg,
+.z-clg {
+    width: 100% !important;
+}
+
+.z-width-auto,
+.z-wa {
+    width: auto;
+}
+
+.z-height-auto,
+.z-ha {
+    height: auto;
+}
+
+// 定义宽高 遍历 2-750
+@for $i from 0 through 1334 {
+    // 只要双数和能被5除尽的数
+    @if $i % 2==0 or $i % 5==0 {
+        // 百分比宽高
+        @if $i <=100 {
+            // 得出：z-width-30或者z-w-30
+            .z-width-#{$i},
+            .z-w-#{$i} {
+                width: $i * 1% !important;
+            }
+            .z-vw-#{$i} {
+                width: $i + vw !important;
+            }
+            // 得出：z-height-30或者z-h-30
+            .z-height-#{$i},
+            .z-h-#{$i} {
+                height: $i * 1% !important;
+            }
+            .z-vh-#{$i} {
+                height: $i + vh !important;
+            }
+        }
+
+        // 等宽等高
+        @if $i <=750 {
+            .z-wh-#{$i} {
+                width: $i + rpx !important;
+                height: $i + rpx !important;
+            }
+        }
+
+        // rpx宽高
+        @each $short, $long in h height, w width {
+            @if $i <=750 {
+                // 得出：z-xh-30或者z-xw-30
+                .z-x#{$short}-#{$i} {
+                    #{$long}: $i + rpx !important;
+                }
+            } @else if $short==h {
+                // 得出：z-xh-30或者z-xw-30
+                .z-x#{$short}-#{$i} {
+                    #{$long}: $i + rpx !important;
+                }
+            }
+        }
+    }
+}
+
+// 定义内外边距，历遍2-120
+@for $i from 0 through 200 {
+    // 只要双数和能被5除尽的数
+    @if $i % 2==0 or $i % 5==0 {
+        // 得出：z-margin-30或者z-m-30
+        .z-margin-#{$i},
+        .z-m-#{$i} {
+            margin: $i + rpx !important;
+        }
+
+        // 得出：z-padding-30或者z-p-30
+        .z-padding-#{$i},
+        .z-p-#{$i} {
+            padding: $i + rpx !important;
+        }
+
+        // 负边距
+
+        .z-m--#{$i} {
+            padding: $i + rpx !important;
+        }
+
+        .z-p--#{$i} {
+            padding: $i + rpx !important;
+        }
+
+        @each $short, $long in l left, t top, r right, b bottom {
+            // 百分比
+            @if $i <=80 {
+                .z-m#{$short}#{$i} {
+                    margin-#{$long}: $i * 1% !important;
+                }
+
+                .z-p#{$short}#{$i} {
+                    padding-#{$long}: $i * 1% !important;
+                }
+            }
+
+            // 结果如： z-ml-30
+            // 定义外边距 结果如：z-margin-left-30 或者 z-ml-30
+            .z-margin-#{$long}-#{$i},
+            .z-m#{$short}-#{$i} {
+                margin-#{$long}: $i + rpx !important;
+            }
+
+            // 结果如：z-padding-left-30 或者 z-pl-30
+            .z-padding-#{$long}-#{$i},
+            .z-p#{$short}-#{$i} {
+                padding-#{$long}: $i + rpx !important;
+            }
+
+            // 负边距
+            .z-m#{$short}--#{$i} {
+                margin-#{$long}: -$i + rpx !important;
+            }
+
+            .z-p#{$short}--#{$i} {
+                padding-#{$long}: -$i + rpx !important;
+            }
+        }
+    }
+
+    // 定义双内外边距，历遍1-120
+    @for $x from 0 through 200 {
+        @if $x % 2==0 or $x % 5==0 {
+            // 得出：z-m-30-32
+            .z-m-#{$i}-#{$x} {
+                margin: $i + rpx + ' ' + $x + rpx !important;
+            }
+
+            // 得出：z-p-30-32
+            .z-p-#{$i}-#{$x} {
+                padding: $i + rpx + ' ' + $x + rpx !important;
+            }
+
+            // 负边距
+            .z-m--#{$i}-#{$x} {
+                margin: $i + rpx + ' ' + $x + rpx !important;
+            }
+
+            .z-p--#{$i}-#{$x} {
+                padding: $i + rpx + ' ' + $x + rpx !important;
+            }
+
+            .z-m-#{$i}--#{$x} {
+                margin: $i + rpx + ' ' + $x + rpx !important;
+            }
+
+            .z-p-#{$i}--#{$x} {
+                padding: $i + rpx + ' ' + $x + rpx !important;
+            }
+        }
+    }
+}
+
+// 定义圆角，历遍2-120
+@for $i from 0 through 120 {
+    // 只要双数和能被5除尽的数
+    @if $i % 2==0 or $i % 5==0 {
+        //定义圆角百分比 得出：z-br-50
+        @if $i <=50 {
+            .z-br-#{$i} {
+                border-radius: $i * 1% !important;
+            }
+        }
+
+        // 定义圆角rpx 得出：z-xbr-30
+        .z-xbr-#{$i} {
+            border-radius: $i + rpx !important;
+        }
+
+        @if $i <=80 {
+            // 定义某一边圆角rpx
+            @each $short, $long in l left, t top, r right, b bottom {
+                @each $short1, $long1 in l left, t top, r right, b bottom {
+                    @if $short !=$short1 {
+                        @if $short==t {
+                            @if $short1 !=b {
+                                .z-#{$short}-#{$short1}-#{$i} {
+                                    border-#{$long}-#{$long1}-radius: $i + rpx !important;
+                                }
+                            }
+                        }
+
+                        @if $short==b {
+                            @if $short1 !=t {
+                                .z-#{$short}-#{$short1}-#{$i} {
+                                    border-#{$long}-#{$long1}-radius: $i + rpx !important;
+                                }
+                            }
+                        }
+
+                        @if $short==l {
+                            @if $short1 !=r {
+                                .z-#{$short}-#{$short1}-#{$i} {
+                                    border-#{$long}-#{$long1}-radius: $i + rpx !important;
+                                }
+                            }
+                        }
+
+                        @if $short==r {
+                            @if $short1 !=l {
+                                .z-#{$short}-#{$short1}-#{$i} {
+                                    border-#{$long}-#{$long1}-radius: $i + rpx !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 重置nvue的默认关于flex的样式
+.z-reset-nvue {
+    flex-direction: row;
+    align-items: center;
+}
+
+// 背景图片
+.z-bg-img {
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+}
