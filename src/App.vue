@@ -1,18 +1,18 @@
 <script>
 export default {
-    onLaunch: function() {
+    onLaunch: function () {
         console.log('App Launch');
     },
-    onShow: function() {
+    onShow: function () {
         console.log('App Show');
     },
-    onHide: function() {
+    onHide: function () {
         console.log('App Hide');
     },
 };
 </script>
 
-<style>
+<style lang="scss">
 @import 'uview-ui/index.scss';
 @import '@/common/css/iconfont.css';
 @import '@/common/css/common.scss';

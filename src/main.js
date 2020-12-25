@@ -66,6 +66,9 @@ const app = new Vue({
     ...App,
 });
 
+// 公共函数
+import common from '@/common/function';
+Vue.use(common, app);
 // http拦截器，将此部分放在new Vue()和app.$mount()之间，才能App.vue中正常使用
 import httpInterceptor from '@/common/http.interceptor.js';
 Vue.use(httpInterceptor, app);
@@ -74,7 +77,4 @@ Vue.use(httpInterceptor, app);
 import api from '@/common/http.api.js';
 Vue.use(api, app);
 
-// 导入公共函数
-import common from '@/common/function/common.js';
-Vue.use(common, app);
 app.$mount();
