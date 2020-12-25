@@ -236,7 +236,23 @@ text {
 .z-tr {
     text-align: right;
 }
-
+@for $i from 100 through 10000 {
+    @if $i < 1000 {
+        @if $i % 50==0 {
+            // 定义层级
+            .z-i-#{$i} {
+                z-index: $i !important;
+            }
+        }
+    } @else {
+        @if $i % 1000==0 {
+            // 定义层级
+            .z-i-#{$i} {
+                z-index: $i !important;
+            }
+        }
+    }
+}
 // 定义flex等分
 @for $i from 0 through 12 {
     .z-flex-#{$i},
@@ -245,13 +261,11 @@ text {
     }
 
     @for $x from 0 through 12 {
-        .z-flex-#{$i}-#{$x},
         .z-f#{$i}-#{$x} {
             flex: $i $x;
         }
 
         @for $y from 0 through 100 {
-            .z-flex-#{$i}-#{$x}-#{$y},
             .z-f#{$i}-#{$x}-#{$y} {
                 flex: $i $x ($y * 1%);
             }
@@ -289,13 +303,11 @@ text {
 // 定义字体(rpx)单位，小于20都为px单位字体 大于或等于20的都为rpx单位字体
 @for $i from 8 through 144 {
     @if $i < 20 {
-        .z-f-#{i},
-        .z-font-#{$i} {
+        .z-f-#{i} {
             font-size: $i + px;
         }
     } @else {
-        .z-f-#{$i},
-        .z-font-#{$i} {
+        .z-f-#{$i} {
             font-size: $i + rpx;
         }
     }
@@ -340,14 +352,13 @@ text {
     height: auto;
 }
 
-// 定义宽高 遍历 2-750
-@for $i from 0 through 1334 {
+// 定义宽高 遍历 0-1336
+@for $i from 0 through 1336 {
     // 只要双数和能被5除尽的数
     @if $i % 2==0 or $i % 5==0 {
         // 百分比宽高
         @if $i <=100 {
             // 得出：z-width-30或者z-w-30
-            .z-width-#{$i},
             .z-w-#{$i} {
                 width: $i * 1% !important;
             }
@@ -355,7 +366,6 @@ text {
                 width: $i + vw !important;
             }
             // 得出：z-height-30或者z-h-30
-            .z-height-#{$i},
             .z-h-#{$i} {
                 height: $i * 1% !important;
             }
@@ -394,26 +404,24 @@ text {
     // 只要双数和能被5除尽的数
     @if $i % 2==0 or $i % 5==0 {
         // 得出：z-margin-30或者z-m-30
-        .z-margin-#{$i},
         .z-m-#{$i} {
             margin: $i + rpx !important;
         }
 
         // 得出：z-padding-30或者z-p-30
-        .z-padding-#{$i},
         .z-p-#{$i} {
             padding: $i + rpx !important;
         }
 
         // 负边距
 
-        .z-m--#{$i} {
-            padding: $i + rpx !important;
-        }
+        // .z-m--#{$i} {
+        //     margin: -$i + rpx !important;
+        // }
 
-        .z-p--#{$i} {
-            padding: $i + rpx !important;
-        }
+        // .z-p--#{$i} {
+        //     padding: -$i + rpx !important;
+        // }
 
         @each $short, $long in l left, t top, r right, b bottom {
             // 百分比
@@ -429,13 +437,11 @@ text {
 
             // 结果如： z-ml-30
             // 定义外边距 结果如：z-margin-left-30 或者 z-ml-30
-            .z-margin-#{$long}-#{$i},
             .z-m#{$short}-#{$i} {
                 margin-#{$long}: $i + rpx !important;
             }
 
             // 结果如：z-padding-left-30 或者 z-pl-30
-            .z-padding-#{$long}-#{$i},
             .z-p#{$short}-#{$i} {
                 padding-#{$long}: $i + rpx !important;
             }
@@ -458,28 +464,23 @@ text {
             .z-m-#{$i}-#{$x} {
                 margin: $i + rpx + ' ' + $x + rpx !important;
             }
-
             // 得出：z-p-30-32
             .z-p-#{$i}-#{$x} {
                 padding: $i + rpx + ' ' + $x + rpx !important;
             }
-
             // 负边距
-            .z-m--#{$i}-#{$x} {
-                margin: $i + rpx + ' ' + $x + rpx !important;
-            }
-
-            .z-p--#{$i}-#{$x} {
-                padding: $i + rpx + ' ' + $x + rpx !important;
-            }
-
-            .z-m-#{$i}--#{$x} {
-                margin: $i + rpx + ' ' + $x + rpx !important;
-            }
-
-            .z-p-#{$i}--#{$x} {
-                padding: $i + rpx + ' ' + $x + rpx !important;
-            }
+            // .z-m--#{$i}-#{$x} {
+            //     margin: -$i + rpx + ' ' + $x + rpx !important;
+            // }
+            // .z-p--#{$i}-#{$x} {
+            //     padding: -$i + rpx + ' ' + $x + rpx !important;
+            // }
+            // .z-m-#{$i}--#{$x} {
+            //     margin: $i + rpx + ' ' + ''-$x + rpx !important;
+            // }
+            // .z-p-#{$i}--#{$x} {
+            //     padding: $i + rpx + ' ' + ''-$x + rpx !important;
+            // }
         }
     }
 }
@@ -489,7 +490,7 @@ text {
     // 只要双数和能被5除尽的数
     @if $i % 2==0 or $i % 5==0 {
         //定义圆角百分比 得出：z-br-50
-        @if $i <=50 {
+        @if $i ==50 {
             .z-br-#{$i} {
                 border-radius: $i * 1% !important;
             }
